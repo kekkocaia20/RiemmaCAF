@@ -1,0 +1,188 @@
+:root {
+    /* Palette colori e variabili */
+    --primary-blue: #1a365d;
+    --secondary-blue: #2a528a;
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #1ebd5a;
+    --bg-light: #f4f7f6;
+    --text-dark: #2d3748;
+    
+    /* Ombre moderne stratificate */
+    --shadow-sm: 0 4px 6px -1px rgba(26, 54, 93, 0.05), 0 2px 4px -1px rgba(26, 54, 93, 0.03);
+    --shadow-md: 0 10px 15px -3px rgba(26, 54, 93, 0.1), 0 4px 6px -2px rgba(26, 54, 93, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(26, 54, 93, 0.15), 0 10px 10px -5px rgba(26, 54, 93, 0.04);
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Effetto Glass sulla Navbar */
+.blur-navbar {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand, .text-primary-blue {
+    color: var(--primary-blue) !important;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.bg-primary-blue {
+    background-color: var(--primary-blue) !important;
+}
+
+/* Hero Section (riportata allo stile semplice senza immagine) */
+.hero-section {
+    padding: clamp(4rem, 10vw, 6rem) 0 clamp(3rem, 8vw, 4rem) 0;
+    position: relative;
+}
+
+/* Sezione Loghi */
+.logos-section {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: 10;
+}
+
+.partner-logo {
+    max-height: clamp(50px, 6vw, 70px);
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s;
+}
+
+.partner-logo:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Card Servizi */
+.service-card {
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-header-icon {
+    font-size: clamp(2.5rem, 4vw, 3.2rem);
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    background-clip: text; /* Versione standard universale */
+    -webkit-background-clip: text; /* Versione per Chrome/Safari/Edge */
+    color: transparent; /* Standard per nascondere il colore del testo */
+    -webkit-text-fill-color: transparent; /* Supporto retroattivo per WebKit */
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+/* Pulsanti */
+.whatsapp-btn {
+    background: linear-gradient(135deg, var(--whatsapp-green) 0%, var(--whatsapp-hover) 100%);
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 35px);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover, .btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    color: white;
+}
+
+.whatsapp-btn:active, .btn-success:active {
+    transform: translateY(1px);
+}
+
+/* Liste e Tipografia interna */
+.list-group-item {
+    background-color: transparent;
+    border-color: rgba(26, 54, 93, 0.08);
+    padding: 1rem 1.25rem;
+    color: var(--text-dark);
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: rgba(26, 54, 93, 0.02);
+    padding-left: 1.5rem;
+}
+
+footer a:hover {
+    color: #2a528a !important; /* Richiama il blu del sito */
+    border-color: #2a528a !important;
+}
+
+/* --- OTTIMIZZAZIONE RESPONSIVE --- */
+
+/* Per dispositivi mobili piccoli */
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 3rem 0;
+    }
+    .hero-section h1 {
+        font-size: 2rem !important;
+    }
+    .card.service-card {
+        margin: 0 10px;
+    }
+}
+
+/* Tablet e schermi medi */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: var(--shadow-md);
+        margin-top: 10px;
+    }
+    .hero-section {
+        padding: 4rem 0;
+    }
+}
+
+/* Desktop e schermi grandi */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    .service-card {
+        padding: 2.5rem !important; /* Più respiro nelle card su desktop */
+    }
+}
+
+/* Micro-aggiustamento per le icone dei servizi */
+@media (max-width: 768px) {
+    .card-header-icon {
+        font-size: 2.5rem;
+    }
+    #contatti .ratio {
+        margin-top: 2rem;
+    }
+}
